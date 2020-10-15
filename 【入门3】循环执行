@@ -1,0 +1,27 @@
+1.找最小值
+给出n和n个整数a(a大于等于0)，求这n个整数的最小值。
+
+输入样例：
+6
+1
+9
+2
+6
+0
+8
+
+输出样例：
+0
+
+n = eval(input())
+minValue = None
+for i in range(n):
+    a = eval(input())
+    if minValue == None:
+        minValue = a
+    elif a < minValue:
+        minValue = a
+print(minValue)
+
+
+2.
