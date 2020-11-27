@@ -2,7 +2,6 @@
 把字符串 s 中的每个空格替换成"%20"。
 
 示例 1：
-
 输入：s = "We are happy."
 输出："We%20are%20happy."
 
@@ -12,11 +11,19 @@
 统计标题字 符数时，空格和换行符不计算在内。
 
 示例 1：
-
 输入：s = "234"
 输出：3
 
 示例 2：
-
 输入：s = "Ca 45 "
 输出：4
+
+answer：
+1.替换空格
+class Solution:
+    def replaceSpace(self, s: str) -> str:
+        res = ""
+        for char in s:
+            if char == " ": res += "%20"
+            else: res += char
+        return res
