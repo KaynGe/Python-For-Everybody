@@ -8,3 +8,14 @@
 示例 1：
 输入：[2, 3, 1, 0, 2, 5, 3]
 输出：2 或 3 
+
+
+answer：
+1.列表中重复的数字
+class Solution:
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        hash = set()
+        for num in nums:
+            if num in hash: return num
+            hash.add(num)
+        return 0
