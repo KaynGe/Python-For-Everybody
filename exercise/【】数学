@@ -1,0 +1,46 @@
+1. 计数质数（leetcode204）
+统计所有小于非负整数 n 的质数的数量。
+
+ 
+
+示例 1：
+输入：n = 10
+输出：4
+解释：小于 10 的质数一共有 4 个, 它们是 2, 3, 5, 7 。
+
+示例 2：
+输入：n = 0
+输出：0
+
+示例 3：
+输入：n = 1
+输出：0
+
+
+answer：
+1.计数质数
+暴力穷举：
+def countPrimes(self, n: int) -> int:
+    def isPrime(n):
+        if n == 0 or n == 1: return false
+        i = 2
+        while i * i <= n:
+            if n % i == 0: return False
+            i += 1
+        return True
+    cnt = 0
+    for i in range(2, n):
+        if isPrime(i): cnt += 1
+    return cnt
+    
+埃式筛法：
+def countPrimes(self, n: int) -> int:
+    if n == 0 or n == 1: return 0
+    ls = [True] * n
+    cnt = 0
+    for i in range(2, n):
+        if ls[i]:
+            cnt += 1
+            for j in range(i + i, n, i):
+                ls[j] = False
+    return cnt
