@@ -9,6 +9,23 @@
 输入：[2, 3, 1, 0, 2, 5, 3]
 输出：2 或 3 
 
+2. 杨辉三角 (leetcode 118)
+给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
+    1
+   1 1
+  1 2 1
+ 1 3 3 1
+1 4 6 4 1
+在杨辉三角中，每个数是它左上方和右上方的数的和。
+
+示例:
+输入: 5
+输出:
+[1]
+[1, 1]
+[1, 2, 1]
+[1, 3, 3, 1]
+[1, 4, 6, 4, 1]
 
 answer：
 1.列表中重复的数字
@@ -19,3 +36,14 @@ class Solution:
             if num in hash: return num
             hash.add(num)
         return 0
+        
+2.杨辉三角
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        res = [[]] * numRows
+        for i in range(numRows):
+            res[i] = [1] * (i + 1)
+            res[i][0] = res[i][i] = 1
+            for j in range(1, i):
+                res[i][j] = res[i - 1][j - 1] + res[i - 1][j]
+        return res
