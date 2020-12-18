@@ -18,6 +18,33 @@
 输入：s = "Ca 45 "
 输出：4
 
+3. 找不同 （leetcode389）
+给定两个字符串 s 和 t，它们只包含小写字母。
+字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。
+请找出在 t 中被添加的字母。
+
+示例 1：
+输入：s = "abcd", t = "abcde"
+输出："e"
+解释：'e' 是那个被添加的字母。
+
+示例 2：
+输入：s = "", t = "y"
+输出："y"
+示例 3：
+
+输入：s = "a", t = "aa"
+输出："a"
+
+示例 4：
+输入：s = "ae", t = "aea"
+输出："a"
+
+提示：
+0 <= s.length <= 1000
+t.length == s.length + 1
+s 和 t 只包含小写字母
+
 answer：
 1.替换空格
 class Solution:
@@ -27,3 +54,32 @@ class Solution:
             if char == " ": res += "%20"
             else: res += char
         return res
+        
+
+3. 找不同 （leetcode389）
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        # ascii
+        # sum = 0
+        # for c in t:
+        #     sum += ord(c)
+        # for c in s:
+        #     sum -= ord(c)
+        # return chr(sum)
+
+        # hash表
+        # hash = [0] * 26
+        # for c in s:
+        #     hash[ord(c) - 97] += 1
+        # for c in t:
+        #     if hash[ord(c) - 97] == 0: return c
+        #     hash[ord(c) - 97] -= 1
+        # return 'a'
+
+        # 异或
+        # res = 0
+        # for c in s:
+        #     res ^= ord(c)
+        # for c in t:
+        #     res ^= ord(c)
+        # return chr(res)
