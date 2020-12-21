@@ -56,3 +56,12 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 输入: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
 输出: 6
 解释: 最低花费方式是从cost[0]开始，逐个经过那些1，跳过cost[3]，一共花费6。
+
+answer：
+3. 使用最小花费爬楼梯（leetcode746）
+def minCostClimbingStairs(self, cost: List[int]) -> int:
+    n = len(cost)
+    dp = [0] * (n + 1)
+    for i in range(2, n + 1):
+        dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+    return dp[n]
